@@ -9,7 +9,11 @@
             wire:model="titulo"
             :value="old('titulo')"
             placeholder="Titulo Vacante" />
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+        {{-- <x-input-error :messages="$errors->get('titulo')" class="mt-2" /> --}}
+            @error('titulo')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+
     </div>
 
     <div>
