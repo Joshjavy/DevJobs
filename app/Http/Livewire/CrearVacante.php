@@ -48,8 +48,9 @@ class CrearVacante extends Component
             'user_id'=>auth()->user()->id,
         ]);
         //crear un mensaje
-
+        session()->flash('mensaje','La vacante se publico correctamente');
         // redireccionar al usuario
+        return redirect()->route('vacantes.index');
     }
 
 
