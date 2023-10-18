@@ -24,6 +24,9 @@
                 <option value="{{ $salario->id}}"> {{ $salario->salario}}</option>
             @endforeach
         </select>
+        @error('salario')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
     </div>
 
     <div>
@@ -34,6 +37,9 @@
                 <option value="{{ $categoria->id}}"> {{ $categoria->categoria}}</option>
             @endforeach
         </select>
+        @error('categoria')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -44,7 +50,10 @@
             wire:model="empresa"
             :value="old('empresa')"
             placeholder="Empresa: Ej. Netflix, uber, Spotify" />
-        <x-input-error :messages="$errors->get('empresa')" class="mt-2" />
+        {{-- <x-input-error :messages="$errors->get('empresa')" class="mt-2" /> --}}
+            @error('empresa')
+            <livewire:mostrar-alerta :message="$message" />
+            @enderror
     </div>
 
     <div>
@@ -55,7 +64,10 @@
             wire:model="ultimo_dia"
             :value="old('ultimo_dia')"
             placeholder="Último día para postularte" />
-        <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" />
+        {{-- <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" /> --}}
+        @error('ultimo_dia')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -67,6 +79,9 @@
         class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full h-72"
     
         > </textarea>
+        @error('descripcion')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -77,7 +92,10 @@
             wire:model="imagen"
             
              />
-        <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
+        @error('imagen')
+            <livewire:mostrar-alerta :message="$message" />
+         @enderror
+        {{-- <x-input-error :messages="$errors->get('imagen')" class="mt-2" /> --}}
     </div>
     
     <x-primary-button class=" w-full justify-center">
