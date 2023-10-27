@@ -31,9 +31,10 @@
 
 
         </div>    
-    @empty
+    @empty 
+    <!--212. Finalizando el Listado de Vacantes!-->
     <div class="p-6 text-gray-900 dark:text-gray-100">
-        Aun no has registrado ninguna Vacante
+        No hay vacantes a mostrar
     </div>
     @endforelse
     
