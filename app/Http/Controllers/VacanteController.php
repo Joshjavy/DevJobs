@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vacante;
 use Illuminate\Http\Request;
 
 class VacanteController extends Controller
@@ -14,5 +15,9 @@ class VacanteController extends Controller
     public function create()
     {
         return view('vacantes.create');
+    }
+
+    public function edit(Vacante $vacante){
+        return view('vacantes.edit');
     }
 }
