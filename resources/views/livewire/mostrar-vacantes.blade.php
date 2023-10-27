@@ -37,5 +37,7 @@
         No hay vacantes a mostrar
     </div>
     @endforelse
-    
+</div>
+<div class=" mt-10">
+{{ $vacantes->links() }}
 </div>
