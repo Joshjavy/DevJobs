@@ -18,6 +18,8 @@ class VacanteController extends Controller
     }
 
     public function edit(Vacante $vacante){
-        return view('vacantes.edit');
+        return view('vacantes.edit',[
+            'vacante'=>$vacante,
+        ]);
     }
 }
