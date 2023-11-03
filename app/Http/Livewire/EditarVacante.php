@@ -18,6 +18,17 @@ class EditarVacante extends Component
     public $ultimo_dia;
     public $descripcion;
     public $imagen;
+
+    protected $rules=[
+        'titulo'=>'required|string',
+        'salario'=>'required',
+        'categoria'=>'required',
+        'empresa'=>'required|string',
+        'ultimo_dia'=>'required',
+        'descripcion'=>'required',
+    ];
+
+
     public function mount( Vacante $vacante)
     {
         $this->titulo = $vacante->titulo;
@@ -29,6 +40,11 @@ class EditarVacante extends Component
         $this->imagen = $vacante->imagen;
     }
 
+    public function editarVacante()
+    {
+        $datos=$this->validate();
+        
+    }
     public function render()
     {
         
