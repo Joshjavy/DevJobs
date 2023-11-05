@@ -25,4 +25,13 @@ class VacanteController extends Controller
             'vacante'=>$vacante,
         ]);
     }
+
+    public function show (Vacante $vacante){
+
+        $this->authorize('update', $vacante);
+
+        return view('vacantes.show',[
+            'vacante'=>$vacante,
+        ]);
+    }
 }
