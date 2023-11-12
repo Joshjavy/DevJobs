@@ -28,7 +28,7 @@ class VacanteController extends Controller
 
     public function show (Vacante $vacante){
 
-        $this->authorize('update', $vacante);
+        // $this->authorize('update', $vacante);
 
         return view('vacantes.show',[
             'vacante'=>$vacante,
