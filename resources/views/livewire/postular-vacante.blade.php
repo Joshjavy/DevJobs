@@ -8,5 +8,8 @@
                 class="block mt-1 w-full"
                 />
         </div>
+        <x-primary-button class=" w-full justify-center mt-5">
+            {{ __('Postularme') }}
+        </x-primary-button>    
     </form>
 </div>
