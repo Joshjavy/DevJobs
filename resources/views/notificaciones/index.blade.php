@@ -12,7 +12,7 @@
                     <h1 class="text-2   xl font-bold text-center mb-10">Mis Notificaciones</h1>
                     
                         @forelse ($notificaciones as $notificacion)
-                            <div class="p-5 border border-gray-200 lg:flex lg:justify-between lg:items-center">
+                            <div class="p-5 border border-gray-200 flex justify-between items-center">
                                 <div>
                                     <p> Tienes un nuevo candidato en:
                                         <span class="font-bold"> {{ $notificacion->data['nombre_vacabte'] }}</span>
@@ -21,7 +21,7 @@
                                         <span class="font-bold"> {{ $notificacion->created_at->toFormattedDateString() }}</span>
                                     </p>
                                 </div>
-                                <div class="mt-5 lg:mt-0">
+                                <div class="">
                                     <a href="#" class="bg-indigo-800 p-3 text-sm uppercase font-bold rounded-lg">
                                     Ver Candidatos
                                     </a>
