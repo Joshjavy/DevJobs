@@ -95,6 +95,19 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         @auth
+            @if (auth()->user()->rol === 2)
+                <div class="flex gap-2 items-center">
+                    <a href="{{ route('notificaciones')}}"
+                    class="mr-2 w-7 h-7 bg-indigo-600 hover:bg-indigo-800 rounded-full
+                    flex flex-col justify-center items-center text-sm text-white">
+                        {{ Auth::user()->unreadNotifications->count() }}
+                    </a>
+                    <p>
+                        @choice('Notificación|Notificaciones', Auth::user()->unreadNotifications->count())
+                        </p>
+                </div>
+            @endif
+
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                     {{ __('Mis vacantes') }}
