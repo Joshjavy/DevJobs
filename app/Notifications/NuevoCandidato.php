@@ -16,9 +16,15 @@ class NuevoCandidato extends Notification
      *
      * @return void
      */
-    public function __construct()
+    private $id_vacante;
+    private $nombre_vacante;
+    private $usuario_id;
+
+    public function __construct($id_vacante, $nombre_vacante, $usuario_id)
     {
-        //
+        $this->id_vacante = $id_vacante;
+        $this->nombre_vacante = $nombre_vacante;
+        $this->usuario_id= $usuario_id;
     }
 
     /**
@@ -29,7 +35,7 @@ class NuevoCandidato extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -38,12 +44,14 @@ class NuevoCandidato extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail($notifiable)//Configurar para mails
     {
+        $url=url('candidatos/'.$this->id_vacante);
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Has recibido un nuevo candidato en tu vacante')
+                    ->line('La vacante es: '.$this->nombre_vacante)
+                    ->action('Ver notificaciones ',$url)
+                    ->line('Gacias por utilizar DebJobs');
     }
 
     /**
@@ -55,7 +63,9 @@ class NuevoCandidato extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            //
+            'id_vacante'=>$this->id_vacante,
+            'nombre_vacabte'=>$this->nombre_vacante,
+            'usuario_id'=> $this->usuario_id,
         ];
     }
 }
