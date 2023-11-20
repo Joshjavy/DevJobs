@@ -34,5 +34,5 @@ Route::middleware('auth')->group(function () {
 });
 
 //Notificaciones
-Route::get('/notificaciones',[NotificacionController::class]);
+Route::get('/notificaciones',NotificacionController::class);
 require __DIR__.'/auth.php';
