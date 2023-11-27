@@ -13,6 +13,8 @@
                                 class=" p-3 text-sm uppercase font-bold rounded-lg text-gray-600"    
                                 > {{$vacante->titulo}} </a>
                                 <p class="p-3 text-base text-gray-600"> {{$vacante->empresa }}  </p>
+                                <p class="p-3 text-xs font-bold text-gray-600"> {{$vacante->categoria->categoria }}  </p>
+                                <p class="p-3 text-base text-gray-600"> {{$vacante->salario->salario }}  </p>
                                 <p class="p-3 font-bold text-xs text-gray-600 ">
                                     Último día para posptularse:
                                     <span class="font-normal"> {{$vacante->ultimo_dia->format('d/m/Y') }}  </span>
