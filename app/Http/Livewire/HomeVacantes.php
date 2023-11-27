@@ -24,7 +24,11 @@ class HomeVacantes extends Component
     }
     public function render()
     {
-        $vacantes=Vacante::all();
+        // $vacantes=Vacante::all();
+        $vacantes= Vacante::when($this->termino, function($query){
+            $query->where('titulo', 'Like', '%'. $this->termino .'%');
+        })->get();
+
         return view('livewire.home-vacantes',[
             'vacantes'=>$vacantes,
         ]);
